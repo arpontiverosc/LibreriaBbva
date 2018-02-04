@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\curso\workspaceBBVA\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1725760952.index
+312359616.index
+2497532590.index
+3731152001.index
+3935482747.index
+3094157435.index

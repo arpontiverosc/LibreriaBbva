@@ -1,0 +1,55 @@
+<h3>Biblioteca</h3>
+<div>
+
+	<table>
+	  <tr ng-repeat="libro in list">
+	    <td>{{ libro.nombre }}</td>
+	    <td>{{ libro.autor }}</td>
+	  </tr>
+	</table>
+
+<div ng-repeat="item in list">
+    <a href="/#/{{item.id}}">{{item.data}}</a>
+</div>
+
+	  <div>
+        <label for="data">Nombre</label>
+        <input id="data" ng-model="form.nombre"/>
+    </div>
+    
+      <div>
+        <label for="data">Autor</label>
+        <input id="data" ng-model="form.autor"/>
+    </div>
+    
+    <div>
+        <label for="data">Anio</label>
+        <input id="data" ng-model="form.anio"/>
+    </div>
+    
+    <div>
+        <label for="data">Genero</label>
+        <input id="data" ng-model="form.genero"/>
+    </div>
+    
+     <button ng-click="save()">Save</button>
+    
+	<!--  
+	
+	    private Long id;
+    private String nombre;
+    private String autor;    
+    private String anio;
+    private String genero;
+    
+	
+    <div>
+        <label for="id">id</label>
+        <input id="id" ng-model="form.id"/>
+    </div>
+    <div>
+        <label for="data">data</label>
+        <input id="data" ng-model="form.data"/>
+    </div>
+    <button ng-click="save()">Save</button>-->
+</div>

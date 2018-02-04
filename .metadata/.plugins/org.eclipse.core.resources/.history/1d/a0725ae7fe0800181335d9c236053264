@@ -1,0 +1,10 @@
+'use strict';
+
+angular.module('libro')
+    .service('libro', function ($http) {
+        return {
+        	cargarDetalle: function (success) {
+                return $http.get("/rest/libro").then(success);
+            }
+        };
+    });

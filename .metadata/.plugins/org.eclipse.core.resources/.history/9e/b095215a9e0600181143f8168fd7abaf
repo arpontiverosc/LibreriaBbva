@@ -1,0 +1,21 @@
+'use strict';
+
+angular.module('biblioteca')
+    .controller('LibrosCtrl', function ($scope, biblioteca) {
+
+        $scope.load = function() {
+        	biblioteca.list(function (list) {
+                $scope.list = biblioteca.data;
+            });
+        }
+
+        $scope.save = function() {
+        	biblioteca.save($scope.form, function() {
+                $scope.load();
+            });
+        }
+
+        $scope.form = {};
+
+        $scope.load();
+    });

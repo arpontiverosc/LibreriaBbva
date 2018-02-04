@@ -1,0 +1,15 @@
+'use strict';
+
+angular.module('libro')
+    .controller('DetailCtrl', function ($scope, $param, libro) {
+
+        $scope.load = function() {
+        	libro.cargarDetalle($param.id, function (list) {
+                $scope.libroForm = detalle.data;
+            });
+        }
+
+        $scope.form = {};
+
+        $scope.load();
+    });

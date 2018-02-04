@@ -1,0 +1,59 @@
+package com.test.rest;
+
+
+import com.test.dao.LibroBeanDAO;
+import com.test.data.LibroBean;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
+
+@Path("/libro")
+@Produces("application/json;charset=utf-8")
+@Api(value = "test", description = "Libro service")
+public class LibroResource {
+
+    private LibroBeanDAO libroBeanDAO;
+
+    public LibroResource() {
+        this.libroBeanDAO = new LibroBeanDAO();
+    }
+
+    @GET
+    @ApiOperation("listLibro libro objects")
+    public Response list() {
+        return Response.ok(this.libroBeanDAO.list()).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    @ApiOperation("get libro object")
+    public Response get(@PathParam("id") Long id) {
+    	LibroBean bean = this.libroBeanDAO.get(id);
+        if (bean == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        return Response.ok(bean).build();
+    }
+
+    @POST
+    @Consumes("application/json;charset=utf-8")
+    @ApiOperation("save libro object")
+    public Response save(LibroBean bean) {
+        this.libroBeanDAO.save(bean);
+        return Response.ok().build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @ApiOperation("delete libro object")
+    public Response delete(@PathParam("id") Long id) {
+    	LibroBean bean = this.libroBeanDAO.get(id);
+        if (bean == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        this.libroBeanDAO.delete(bean);
+        return Response.ok().build();
+    }
+}

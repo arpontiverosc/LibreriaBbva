@@ -1,0 +1,7 @@
+ <h2>Detalle</h2>  
+    Nombre: {{formulario.nombre}}
+    Autor: {{formulario.autor}}
+    G&eacutenero: {{formulario.genero}}
+    Fecha: {{formulario.fecha}}</li>
+  </ul>
+</div>

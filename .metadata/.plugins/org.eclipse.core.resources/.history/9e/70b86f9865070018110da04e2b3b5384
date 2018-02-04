@@ -1,0 +1,13 @@
+'use strict';
+
+angular.module('biblioteca')
+    .service('biblioteca', function ($http) {
+        return {
+            list: function (success) {
+                return $http.get("/rest/biblioteca").then(success);
+            },
+            save: function (test, success) {
+                return $http.post("/rest/biblioteca", test).then(success);
+            }
+        };
+    });
