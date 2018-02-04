@@ -2,3 +2,5 @@
 target
 local_db.bin
 *.iml
+/.metadata/
+/.metadata/
